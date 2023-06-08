@@ -1,4 +1,5 @@
 import _ from 'lodash';
+import throttle from 'lodash.throttle';
 const convertJSONBtn = document.querySelector('.feedback-form');
 const form = document.querySelector('.feedback-form');
 function sendForm(event) {
@@ -10,8 +11,8 @@ function sendForm(event) {
   };
   console.log(formData);
   localStorage.removeItem('feedback-form-state');
-  formData.email.value = '';
-  formData.message.value = '';
+  document.querySelector('input[name="email"]').value = '';
+  document.querySelector('textarea[name="message"]').value = '';
 }
 
 function saveData() {
